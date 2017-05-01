@@ -1,24 +1,45 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails API with JWT (https://www.sitepoint.com/authenticate-your-rails-api-with-jwt-from-scratch/)
 
-Things you may want to cover:
+```
+Users#create (Returns JWT)
+POST /users
 
-* Ruby version
+{
+  "user": {
+    "email": "test@example.com",
+    "password": "anewpassword",
+    "password_confirmation": "anewpassword"
+  }
+}
 
-* System dependencies
+Users#login (returns JWT)
+POST /users/login
 
-* Configuration
+{
+  "email": "test@example.com",
+  "password": "anewpassword"
+}
 
-* Database creation
+Users#show (returns user info & all bounces)
+GET /users/:id
 
-* Database initialization
+Bounces#index
+GET /bounces
 
-* How to run the test suite
+Bounces#Show
+GET /bounces/:bounce_id
 
-* Services (job queues, cache servers, search engines, etc.)
+Bounces#create (Requires JWT)
+POST /bounces
 
-* Deployment instructions
-
-* ...
+Headers:
+  Authorization: JWT TOKEN FROM LOGIN
+Body:
+{
+  "user_id": 1,
+  "cloudinary_id": "hashtest",
+  "title": "TESTING"
+}
+```

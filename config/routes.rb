@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :bounces
-  resources :users, only: :create do
+  resources :users do
     collection do
       post 'login'
     end
