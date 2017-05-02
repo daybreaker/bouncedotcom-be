@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: bouncedotcom-be_production
-  username: bouncedotcom-be
+  username: <%= ENV['BOUNCEDOTCOM-BE_DATABASE_USERNAME'] %>
   password: <%= ENV['BOUNCEDOTCOM-BE_DATABASE_PASSWORD'] %>
