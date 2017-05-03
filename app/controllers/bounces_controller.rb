@@ -22,6 +22,6 @@ class BouncesController < ApplicationController
   private
 
   def bounce_params
-    params.require(:bounce).permit(:user_id, :cloudinary_id, :title)
+    params.require(:bounce).permit(:user_id, :cloudinary_id, :title, :media_type)
   end
 end
