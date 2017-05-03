@@ -18,6 +18,7 @@ class BouncesController < ApplicationController
   end
 
   def create
+    puts bounce_params.inspect
     bounce = Bounce.new(bounce_params)
 
     if bounce.save
@@ -30,6 +31,6 @@ class BouncesController < ApplicationController
   private
 
   def bounce_params
-    params.require(:bounce).permit(:user_id, :cloudinary_id, :title, :media_type)
+    params.require(:bounce).permit!
   end
 end
