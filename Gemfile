@@ -27,6 +27,9 @@ gem 'jwt'
 gem 'rack-cors'
 gem 'kaminari'
 
+gem 'oj'
+gem "multi_json", '~> 1.11'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
