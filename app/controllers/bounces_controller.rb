@@ -1,8 +1,16 @@
 class BouncesController < ApplicationController
   before_filter :authenticate_request!, only: [:create, :destroy]
 
+  PER_PAGE = 2
+
   def index
-    render json: Bounce.order(created_at: :desc).limit(10)
+    page = params[:page] ? params[:page] : 1
+    bounces = Bounce.order(created_at: :desc).page(page).per(PER_PAGE)
+    render json: {
+      bounces: bounces,
+      all_bounces_count: Bounce.count,
+      this_page_total: bounces.count
+    }
   end
 
   def show
