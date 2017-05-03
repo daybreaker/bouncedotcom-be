@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    user.password_digest = "fake"
 
     if user.save
       auth_token = JsonWebToken.encode(user_id: user.id)
