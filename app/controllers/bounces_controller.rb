@@ -1,7 +1,7 @@
 class BouncesController < ApplicationController
   before_filter :authenticate_request!, only: [:create, :destroy]
 
-  PER_PAGE = 2
+  PER_PAGE = 15
 
   def index
     page = params[:page] ? params[:page] : 1
